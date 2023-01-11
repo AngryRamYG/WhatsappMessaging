@@ -1,0 +1,75 @@
+﻿@*@page "/"
+@using System.Security.Claims
+@using AngryMonkey.Cloud.Login.Controllers;
+<AuthorizeView>
+    <Authorized>
+        <section class="authorized">
+            <div>
+                @{
+                    string input = context?.User?.FindFirst(ClaimTypes.Email)?.Value;
+
+                    if (string.IsNullOrEmpty(input))
+                        input = context.User.FindFirst(ClaimTypes.MobilePhone).Value;
+                }
+
+                <h1>Success!</h1>
+                <b>Name:</b> @context.User.FindFirst(ClaimTypes.Name).Value
+                <br />
+                <b>ID:</b> @context.User.FindFirst(ClaimTypes.NameIdentifier).Value
+                <br />
+                
+                <b>Input:</b> @input
+
+                <br />
+                <br />
+                <a href="cloudlogin/logout">Logout</a>
+            </div>
+        </section>
+    </Authorized>
+    <NotAuthorized>
+        <AngryMonkey.Cloud.Login.CloudLogin Logo="https://thehealthbarme.com/img/logo.svg" />
+    </NotAuthorized>
+</AuthorizeView>*@
+
+
+
+
+
+@page "/"
+@inject HttpClient Http;
+
+<PageTitle>Index</PageTitle>
+
+<section>
+    <div class="form">
+        <div>
+            <label>Phone Number: </label>
+            <input type="text" name="phone" class="form-number" @bind="@number" />
+        </div>
+        <div>
+            <label>Template Text: </label>
+            <textarea spellcheck="false" type="text" name="text" class="form-text" @bind="@body">
+
+            </textarea>
+        </div>
+    
+        <div class="form-button">
+            <button class="btn btn-primary" id="subnit" @onclick="send">Send</button>
+        </div>
+
+
+        <div>
+            <label>Reply Text: </label>
+            <textarea spellcheck="false" type="text" name="text" class="form-text" @bind="@bodyText">
+
+            </textarea>
+        </div>
+
+        <div class="form-button">
+            <button class="btn btn-primary" id="subnit" @onclick="Reply">Reply</button>
+        </div>
+        
+    </div>
+</section>
+
+

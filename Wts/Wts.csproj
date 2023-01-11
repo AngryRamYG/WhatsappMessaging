@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>b827cc4b-c339-4abb-994a-1ff42e7e7a9c</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
+  </ItemGroup>
+	
+
+
+  <ItemGroup>
+    <PackageReference Include="AngryMonkey.Cloud.Login" Version="4.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+</Project>

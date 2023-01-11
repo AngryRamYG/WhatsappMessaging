@@ -1,0 +1,38 @@
+﻿body {
+    section {
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            justify-content: left;
+
+            > div {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: left;
+                gap: 5px;
+
+
+                textarea {
+                    width: 100% !important;
+                    height: 100px;
+                    padding: 10px;
+                }
+
+                .check-text {
+                    > div {
+                        display: flex;
+                        gap: 20px;
+                        align-items: center;
+                        justify-content: left;
+                    }
+                }
+            }
+
+            &-button {
+                align-self: end;
+            }
+        }
+    }
+}
